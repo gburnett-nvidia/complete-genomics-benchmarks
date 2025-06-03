@@ -8,10 +8,9 @@ DATA_DIR="$PWD/data"
 mkdir -p $DATA_DIR
 
 # DNBSEQ-T1+ 
-# TODO: This should be a public link 
 cd $DATA_DIR && \
-    aws --profile complete s3 cp s3://cg-nvidia/30x_DL100002760_L01_NA12878_1.fq.gz && \
-    aws --profile complete s3 cp s3://cg-nvidia/30x_DL100002760_L01_NA12878_2.fq.gz
+    aws --profile complete s3 cp s3://cg-nvidia/30x_HG001_DL100002836_L02_NA12878_1.fq.gz && \
+    aws --profile complete s3 cp s3://cg-nvidia/30x_HG001_DL100002836_L02_NA12878_2.fq.gz
 
 # DNBSEQ-T7 
 cd $DATA_DIR && \
