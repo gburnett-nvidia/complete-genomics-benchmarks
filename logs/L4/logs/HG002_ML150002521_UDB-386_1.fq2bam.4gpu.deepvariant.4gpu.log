@@ -1,0 +1,213 @@
+[PB Info 2026-Jun-02 03:02:24] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:02:24] ||                 Parabricks accelerated Genomics Pipeline                 ||
+[PB Info 2026-Jun-02 03:02:24] ||                              Version 4.7.0-1                             ||
+[PB Info 2026-Jun-02 03:02:24] ||                                deepvariant                               ||
+[PB Info 2026-Jun-02 03:02:24] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:02:24] Starting DeepVariant
+[PB Info 2026-Jun-02 03:02:24] Running with 2 GPU devices, each with 4 group instances and 6 workers
+[PB Info 2026-Jun-02 03:02:31] ProgressMeter -	Current-Locus	Elapsed-Minutes
+[PB Info 2026-Jun-02 03:02:37] ProgressMeter -	chr1:169000	0.1
+[PB Info 2026-Jun-02 03:02:43] ProgressMeter -	chr1:10354000	0.2
+[PB Info 2026-Jun-02 03:02:49] ProgressMeter -	chr1:22679000	0.3
+[PB Info 2026-Jun-02 03:02:55] ProgressMeter -	chr1:44989000	0.4
+[PB Info 2026-Jun-02 03:03:01] ProgressMeter -	chr1:61510000	0.5
+[PB Info 2026-Jun-02 03:03:07] ProgressMeter -	chr1:79710000	0.6
+[PB Info 2026-Jun-02 03:03:13] ProgressMeter -	chr1:96512000	0.7
+[PB Info 2026-Jun-02 03:03:19] ProgressMeter -	chr1:100832000	0.8
+[PB Info 2026-Jun-02 03:03:25] ProgressMeter -	chr1:111702000	0.9
+[PB Info 2026-Jun-02 03:03:31] ProgressMeter -	chr1:122673000	1.0
+[PB Info 2026-Jun-02 03:03:37] ProgressMeter -	chr1:163993000	1.1
+[PB Info 2026-Jun-02 03:03:43] ProgressMeter -	chr1:179033000	1.2
+[PB Info 2026-Jun-02 03:03:49] ProgressMeter -	chr1:199538000	1.3
+[PB Info 2026-Jun-02 03:03:55] ProgressMeter -	chr1:218302000	1.4
+[PB Info 2026-Jun-02 03:04:01] ProgressMeter -	chr1:233754000	1.5
+[PB Info 2026-Jun-02 03:04:07] ProgressMeter -	chr4:91000	1.6
+[PB Info 2026-Jun-02 03:04:13] ProgressMeter -	chr4:13893000	1.7
+[PB Info 2026-Jun-02 03:04:19] ProgressMeter -	chr4:29100000	1.8
+[PB Info 2026-Jun-02 03:04:25] ProgressMeter -	chr4:44032000	1.9
+[PB Info 2026-Jun-02 03:04:31] ProgressMeter -	chr4:54752000	2.0
+[PB Info 2026-Jun-02 03:04:37] ProgressMeter -	chr4:67672000	2.1
+[PB Info 2026-Jun-02 03:04:43] ProgressMeter -	chr4:85285000	2.2
+[PB Info 2026-Jun-02 03:04:49] ProgressMeter -	chr4:103375000	2.3
+[PB Info 2026-Jun-02 03:04:55] ProgressMeter -	chr4:119056000	2.4
+[PB Info 2026-Jun-02 03:05:01] ProgressMeter -	chr4:134980000	2.5
+[PB Info 2026-Jun-02 03:05:07] ProgressMeter -	chr4:152426000	2.6
+[PB Info 2026-Jun-02 03:05:13] ProgressMeter -	chr4:166798000	2.7
+[PB Info 2026-Jun-02 03:05:19] ProgressMeter -	chr4:181042000	2.8
+[PB Info 2026-Jun-02 03:05:25] ProgressMeter -	chr5:5429000	2.9
+[PB Info 2026-Jun-02 03:05:31] ProgressMeter -	chr5:19439000	3.0
+[PB Info 2026-Jun-02 03:05:37] ProgressMeter -	chr5:33656000	3.1
+[PB Info 2026-Jun-02 03:05:43] ProgressMeter -	chr5:52181000	3.2
+[PB Info 2026-Jun-02 03:05:49] ProgressMeter -	chr5:68824000	3.3
+[PB Info 2026-Jun-02 03:05:55] ProgressMeter -	chr5:89913000	3.4
+[PB Info 2026-Jun-02 03:06:01] ProgressMeter -	chr5:108415000	3.5
+[PB Info 2026-Jun-02 03:06:07] ProgressMeter -	chr5:124738000	3.6
+[PB Info 2026-Jun-02 03:06:13] ProgressMeter -	chr5:144876000	3.7
+[PB Info 2026-Jun-02 03:06:19] ProgressMeter -	chr5:160556000	3.8
+[PB Info 2026-Jun-02 03:06:25] ProgressMeter -	chr5:175747000	3.9
+[PB Info 2026-Jun-02 03:06:31] ProgressMeter -	chr9:7138000	4.0
+[PB Info 2026-Jun-02 03:06:37] ProgressMeter -	chr9:22950000	4.1
+[PB Info 2026-Jun-02 03:06:43] ProgressMeter -	chr9:36870000	4.2
+[PB Info 2026-Jun-02 03:06:49] ProgressMeter -	chr9:62828000	4.3
+[PB Info 2026-Jun-02 03:06:55] ProgressMeter -	chr9:81405000	4.4
+[PB Info 2026-Jun-02 03:07:01] ProgressMeter -	chr9:101364000	4.5
+[PB Info 2026-Jun-02 03:07:07] ProgressMeter -	chr9:117238000	4.6
+[PB Info 2026-Jun-02 03:07:13] ProgressMeter -	chr9:134200000	4.7
+[PB Info 2026-Jun-02 03:07:19] ProgressMeter -	chr11:9217000	4.8
+[PB Info 2026-Jun-02 03:07:25] ProgressMeter -	chr11:23777000	4.9
+[PB Info 2026-Jun-02 03:07:31] ProgressMeter -	chr11:39746000	5.0
+[PB Info 2026-Jun-02 03:07:37] ProgressMeter -	chr11:55565000	5.1
+[PB Info 2026-Jun-02 03:07:43] ProgressMeter -	chr11:74619000	5.2
+[PB Info 2026-Jun-02 03:07:49] ProgressMeter -	chr11:91792000	5.3
+[PB Info 2026-Jun-02 03:07:55] ProgressMeter -	chr11:108114000	5.4
+[PB Info 2026-Jun-02 03:08:01] ProgressMeter -	chr11:121854000	5.5
+[PB Info 2026-Jun-02 03:08:07] ProgressMeter -	chr13:16221000	5.6
+[PB Info 2026-Jun-02 03:08:13] ProgressMeter -	chr13:29356000	5.7
+[PB Info 2026-Jun-02 03:08:19] ProgressMeter -	chr13:44880000	5.8
+[PB Info 2026-Jun-02 03:08:25] ProgressMeter -	chr13:61235000	5.9
+[PB Info 2026-Jun-02 03:08:31] ProgressMeter -	chr13:75727000	6.0
+[PB Info 2026-Jun-02 03:08:37] ProgressMeter -	chr13:92245000	6.1
+[PB Info 2026-Jun-02 03:08:43] ProgressMeter -	chr13:106325000	6.2
+[PB Info 2026-Jun-02 03:08:49] ProgressMeter -	chr14:24100000	6.3
+[PB Info 2026-Jun-02 03:08:55] ProgressMeter -	chr14:39144000	6.4
+[PB Info 2026-Jun-02 03:09:01] ProgressMeter -	chr14:56724000	6.5
+[PB Info 2026-Jun-02 03:09:07] ProgressMeter -	chr14:70964000	6.6
+[PB Info 2026-Jun-02 03:09:13] ProgressMeter -	chr14:87924000	6.7
+[PB Info 2026-Jun-02 03:09:19] ProgressMeter -	chr14:101537000	6.8
+[PB Info 2026-Jun-02 03:09:25] ProgressMeter -	chr16:10998000	6.9
+[PB Info 2026-Jun-02 03:09:31] ProgressMeter -	chr16:21232000	7.0
+[PB Info 2026-Jun-02 03:09:37] ProgressMeter -	chr16:46383000	7.1
+[PB Info 2026-Jun-02 03:09:43] ProgressMeter -	chr16:71000000	7.2
+[PB Info 2026-Jun-02 03:09:49] ProgressMeter -	chr16:81080000	7.3
+[PB Info 2026-Jun-02 03:09:55] ProgressMeter -	chr18:4954000	7.4
+[PB Info 2026-Jun-02 03:10:01] ProgressMeter -	chr18:21569000	7.5
+[PB Info 2026-Jun-02 03:10:07] ProgressMeter -	chr18:40289000	7.6
+[PB Info 2026-Jun-02 03:10:13] ProgressMeter -	chr18:57269000	7.7
+[PB Info 2026-Jun-02 03:10:19] ProgressMeter -	chr18:68593000	7.8
+[PB Info 2026-Jun-02 03:10:25] ProgressMeter -	chr18:79807000	7.9
+[PB Info 2026-Jun-02 03:10:31] ProgressMeter -	chr21:23593000	8.0
+[PB Info 2026-Jun-02 03:10:37] ProgressMeter -	chr21:40475000	8.1
+[PB Info 2026-Jun-02 03:10:43] ProgressMeter -	chrX:16914000	8.2
+[PB Info 2026-Jun-02 03:10:49] ProgressMeter -	chrX:67129000	8.3
+[PB Info 2026-Jun-02 03:10:55] ProgressMeter -	chrX:109657000	8.4
+[PB Info 2026-Jun-02 03:11:01] ProgressMeter -	chrX:145438000	8.5
+[PB Info 2026-Jun-02 03:11:07] ProgressMeter -	chrY:17188000	8.6
+[PB Info 2026-Jun-02 03:11:15] Deepvariant is finished, total time is 524.021 seconds
+[PB Info 2026-Jun-02 03:11:15] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:11:15] ||        Program:                                       deepvariant        ||
+[PB Info 2026-Jun-02 03:11:15] ||        Version:                                           4.7.0-1        ||
+[PB Info 2026-Jun-02 03:11:15] ||        Start Time:                       Tue Jun  2 03:02:24 2026        ||
+[PB Info 2026-Jun-02 03:11:15] ||        End Time:                         Tue Jun  2 03:11:15 2026        ||
+[PB Info 2026-Jun-02 03:11:15] ||        Total Time:                           8 minutes 51 seconds        ||
+[PB Info 2026-Jun-02 03:11:15] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:02:24] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:02:24] ||                 Parabricks accelerated Genomics Pipeline                 ||
+[PB Info 2026-Jun-02 03:02:24] ||                              Version 4.7.0-1                             ||
+[PB Info 2026-Jun-02 03:02:24] ||                                deepvariant                               ||
+[PB Info 2026-Jun-02 03:02:24] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:02:24] Starting DeepVariant
+[PB Info 2026-Jun-02 03:02:24] Running with 2 GPU devices, each with 4 group instances and 6 workers
+[PB Info 2026-Jun-02 03:02:31] ProgressMeter -	Current-Locus	Elapsed-Minutes
+[PB Info 2026-Jun-02 03:02:37] ProgressMeter -	chr2:90000	0.1
+[PB Info 2026-Jun-02 03:02:43] ProgressMeter -	chr2:8606000	0.2
+[PB Info 2026-Jun-02 03:02:49] ProgressMeter -	chr2:20130000	0.3
+[PB Info 2026-Jun-02 03:02:55] ProgressMeter -	chr2:44233000	0.4
+[PB Info 2026-Jun-02 03:03:01] ProgressMeter -	chr2:61993000	0.5
+[PB Info 2026-Jun-02 03:03:07] ProgressMeter -	chr2:73847000	0.6
+[PB Info 2026-Jun-02 03:03:13] ProgressMeter -	chr2:99611000	0.7
+[PB Info 2026-Jun-02 03:03:19] ProgressMeter -	chr2:116069000	0.8
+[PB Info 2026-Jun-02 03:03:25] ProgressMeter -	chr2:136285000	0.9
+[PB Info 2026-Jun-02 03:03:31] ProgressMeter -	chr2:153161000	1.0
+[PB Info 2026-Jun-02 03:03:37] ProgressMeter -	chr2:168683000	1.1
+[PB Info 2026-Jun-02 03:03:43] ProgressMeter -	chr2:186206000	1.2
+[PB Info 2026-Jun-02 03:03:49] ProgressMeter -	chr2:200606000	1.3
+[PB Info 2026-Jun-02 03:03:55] ProgressMeter -	chr2:215006000	1.4
+[PB Info 2026-Jun-02 03:04:01] ProgressMeter -	chr2:230689000	1.5
+[PB Info 2026-Jun-02 03:04:07] ProgressMeter -	chr3:3671000	1.6
+[PB Info 2026-Jun-02 03:04:13] ProgressMeter -	chr3:21484000	1.7
+[PB Info 2026-Jun-02 03:04:19] ProgressMeter -	chr3:37651000	1.8
+[PB Info 2026-Jun-02 03:04:25] ProgressMeter -	chr3:54611000	1.9
+[PB Info 2026-Jun-02 03:04:31] ProgressMeter -	chr3:69658000	2.0
+[PB Info 2026-Jun-02 03:04:37] ProgressMeter -	chr3:82618000	2.1
+[PB Info 2026-Jun-02 03:04:43] ProgressMeter -	chr3:99938000	2.2
+[PB Info 2026-Jun-02 03:04:49] ProgressMeter -	chr3:117539000	2.3
+[PB Info 2026-Jun-02 03:04:55] ProgressMeter -	chr3:134544000	2.4
+[PB Info 2026-Jun-02 03:05:01] ProgressMeter -	chr3:153275000	2.5
+[PB Info 2026-Jun-02 03:05:07] ProgressMeter -	chr3:171867000	2.6
+[PB Info 2026-Jun-02 03:05:13] ProgressMeter -	chr3:186179000	2.7
+[PB Info 2026-Jun-02 03:05:19] ProgressMeter -	chr6:3873000	2.8
+[PB Info 2026-Jun-02 03:05:25] ProgressMeter -	chr6:17953000	2.9
+[PB Info 2026-Jun-02 03:05:31] ProgressMeter -	chr6:38557000	3.0
+[PB Info 2026-Jun-02 03:05:37] ProgressMeter -	chr6:52797000	3.1
+[PB Info 2026-Jun-02 03:05:43] ProgressMeter -	chr6:67572000	3.2
+[PB Info 2026-Jun-02 03:05:49] ProgressMeter -	chr6:87117000	3.3
+[PB Info 2026-Jun-02 03:05:55] ProgressMeter -	chr6:105108000	3.4
+[PB Info 2026-Jun-02 03:06:01] ProgressMeter -	chr6:120948000	3.5
+[PB Info 2026-Jun-02 03:06:07] ProgressMeter -	chr6:140047000	3.6
+[PB Info 2026-Jun-02 03:06:13] ProgressMeter -	chr6:158128000	3.7
+[PB Info 2026-Jun-02 03:06:19] ProgressMeter -	chr7:1513000	3.8
+[PB Info 2026-Jun-02 03:06:25] ProgressMeter -	chr7:14801000	3.9
+[PB Info 2026-Jun-02 03:06:31] ProgressMeter -	chr7:30322000	4.0
+[PB Info 2026-Jun-02 03:06:37] ProgressMeter -	chr7:45685000	4.1
+[PB Info 2026-Jun-02 03:06:43] ProgressMeter -	chr7:60216000	4.2
+[PB Info 2026-Jun-02 03:06:49] ProgressMeter -	chr7:76271000	4.3
+[PB Info 2026-Jun-02 03:06:55] ProgressMeter -	chr7:92323000	4.4
+[PB Info 2026-Jun-02 03:07:01] ProgressMeter -	chr7:109705000	4.5
+[PB Info 2026-Jun-02 03:07:07] ProgressMeter -	chr7:127162000	4.6
+[PB Info 2026-Jun-02 03:07:13] ProgressMeter -	chr7:143425000	4.7
+[PB Info 2026-Jun-02 03:07:19] ProgressMeter -	chr7:156563000	4.8
+[PB Info 2026-Jun-02 03:07:25] ProgressMeter -	chr8:9932000	4.9
+[PB Info 2026-Jun-02 03:07:31] ProgressMeter -	chr8:23916000	5.0
+[PB Info 2026-Jun-02 03:07:37] ProgressMeter -	chr8:41139000	5.1
+[PB Info 2026-Jun-02 03:07:43] ProgressMeter -	chr8:62024000	5.2
+[PB Info 2026-Jun-02 03:07:49] ProgressMeter -	chr8:81389000	5.3
+[PB Info 2026-Jun-02 03:07:55] ProgressMeter -	chr8:99752000	5.4
+[PB Info 2026-Jun-02 03:08:01] ProgressMeter -	chr8:116872000	5.5
+[PB Info 2026-Jun-02 03:08:07] ProgressMeter -	chr8:131087000	5.6
+[PB Info 2026-Jun-02 03:08:13] ProgressMeter -	chr8:143932000	5.7
+[PB Info 2026-Jun-02 03:08:19] ProgressMeter -	chr10:14190000	5.8
+[PB Info 2026-Jun-02 03:08:25] ProgressMeter -	chr10:24431000	5.9
+[PB Info 2026-Jun-02 03:08:31] ProgressMeter -	chr10:37361000	6.0
+[PB Info 2026-Jun-02 03:08:37] ProgressMeter -	chr10:52450000	6.1
+[PB Info 2026-Jun-02 03:08:43] ProgressMeter -	chr10:67810000	6.2
+[PB Info 2026-Jun-02 03:08:49] ProgressMeter -	chr10:82542000	6.3
+[PB Info 2026-Jun-02 03:08:55] ProgressMeter -	chr10:99031000	6.4
+[PB Info 2026-Jun-02 03:09:01] ProgressMeter -	chr10:114874000	6.5
+[PB Info 2026-Jun-02 03:09:07] ProgressMeter -	chr10:128808000	6.6
+[PB Info 2026-Jun-02 03:09:13] ProgressMeter -	chr12:9036000	6.7
+[PB Info 2026-Jun-02 03:09:19] ProgressMeter -	chr12:21821000	6.8
+[PB Info 2026-Jun-02 03:09:25] ProgressMeter -	chr12:37731000	6.9
+[PB Info 2026-Jun-02 03:09:31] ProgressMeter -	chr12:54233000	7.0
+[PB Info 2026-Jun-02 03:09:37] ProgressMeter -	chr12:71759000	7.1
+[PB Info 2026-Jun-02 03:09:43] ProgressMeter -	chr12:90160000	7.2
+[PB Info 2026-Jun-02 03:09:49] ProgressMeter -	chr12:107244000	7.3
+[PB Info 2026-Jun-02 03:09:55] ProgressMeter -	chr12:121964000	7.4
+[PB Info 2026-Jun-02 03:10:01] ProgressMeter -	chr15:17067000	7.5
+[PB Info 2026-Jun-02 03:10:07] ProgressMeter -	chr15:37281000	7.6
+[PB Info 2026-Jun-02 03:10:13] ProgressMeter -	chr15:54679000	7.7
+[PB Info 2026-Jun-02 03:10:19] ProgressMeter -	chr15:71515000	7.8
+[PB Info 2026-Jun-02 03:10:25] ProgressMeter -	chr15:89748000	7.9
+[PB Info 2026-Jun-02 03:10:31] ProgressMeter -	chr17:3475000	8.0
+[PB Info 2026-Jun-02 03:10:37] ProgressMeter -	chr17:15796000	8.1
+[PB Info 2026-Jun-02 03:10:43] ProgressMeter -	chr17:30900000	8.2
+[PB Info 2026-Jun-02 03:10:49] ProgressMeter -	chr17:51664000	8.3
+[PB Info 2026-Jun-02 03:10:55] ProgressMeter -	chr17:68153000	8.4
+[PB Info 2026-Jun-02 03:11:01] ProgressMeter -	chr19:977000	8.5
+[PB Info 2026-Jun-02 03:11:07] ProgressMeter -	chr19:16232000	8.6
+[PB Info 2026-Jun-02 03:11:13] ProgressMeter -	chr19:32238000	8.7
+[PB Info 2026-Jun-02 03:11:19] ProgressMeter -	chr19:48297000	8.8
+[PB Info 2026-Jun-02 03:11:25] ProgressMeter -	chr20:3722000	8.9
+[PB Info 2026-Jun-02 03:11:31] ProgressMeter -	chr20:18688000	9.0
+[PB Info 2026-Jun-02 03:11:37] ProgressMeter -	chr20:26670000	9.1
+[PB Info 2026-Jun-02 03:11:43] ProgressMeter -	chr20:39641000	9.2
+[PB Info 2026-Jun-02 03:11:49] ProgressMeter -	chr20:51802000	9.3
+[PB Info 2026-Jun-02 03:11:55] ProgressMeter -	chr20:62040000	9.4
+[PB Info 2026-Jun-02 03:12:01] ProgressMeter -	chr22:25258000	9.5
+[PB Info 2026-Jun-02 03:12:08] Deepvariant is finished, total time is 576.926 seconds
+[PB Info 2026-Jun-02 03:12:08] ------------------------------------------------------------------------------
+[PB Info 2026-Jun-02 03:12:08] ||        Program:                                       deepvariant        ||
+[PB Info 2026-Jun-02 03:12:08] ||        Version:                                           4.7.0-1        ||
+[PB Info 2026-Jun-02 03:12:08] ||        Start Time:                       Tue Jun  2 03:02:24 2026        ||
+[PB Info 2026-Jun-02 03:12:08] ||        End Time:                         Tue Jun  2 03:12:08 2026        ||
+[PB Info 2026-Jun-02 03:12:08] ||        Total Time:                           9 minutes 44 seconds        ||
+[PB Info 2026-Jun-02 03:12:08] ------------------------------------------------------------------------------
