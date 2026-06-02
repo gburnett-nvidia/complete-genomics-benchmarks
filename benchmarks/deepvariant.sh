@@ -11,30 +11,45 @@
 
 DATA_DIR="$1"
 IN_BAM="$2"
-TMP_DIR="$3"
+# Scratch defaults to the fast local NVMe SSD; override with arg 3.
+TMP_DIR="${3:-/opt/dlami/nvme/tmp}"
 ARGS="$4"
+mkdir -p "${TMP_DIR}"
 
 DOCKER_IMAGE="nvcr.io/nvidia/clara/clara-parabricks:4.7.0-1"
 
 # Discover the hardware so we can size the run and label the outputs.
-NUM_GPUS=$(nvidia-smi -L | wc -l)
+# NUM_GPUS may be set in the environment to benchmark a specific GPU count
+# (e.g. NUM_GPUS=2); otherwise we use every GPU on the host.
+DETECTED_GPUS=$(nvidia-smi -L | wc -l)
+NUM_GPUS="${NUM_GPUS:-$DETECTED_GPUS}"
+
+# Expose exactly NUM_GPUS devices (0..NUM_GPUS-1) to the container.
+GPU_DEVICES=$(seq -s, 0 $(( NUM_GPUS - 1 )))
+GPU_FLAG="\"device=${GPU_DEVICES}\""
+
+# 4 streams/GPU keeps device-memory use modest on the L4 (24 GB). CPU threads
+# per stream are sized so all host vCPUs are used (matching fq2bam/haplotypecaller):
+# total worker threads = NUM_GPUS * STREAMS_PER_GPU * THREADS_PER_STREAM ~= NUM_CPUS.
+NUM_CPUS=$(nproc)
+STREAMS_PER_GPU=4
+THREADS_PER_STREAM=$(( NUM_CPUS / (NUM_GPUS * STREAMS_PER_GPU) ))
+(( THREADS_PER_STREAM < 1 )) && THREADS_PER_STREAM=1
 
 SAMPLE="$(basename -s .bam $IN_BAM)"
 OUT_VCF="${SAMPLE}.deepvariant.${NUM_GPUS}gpu.vcf"
 LOG_FILE="${SAMPLE}.deepvariant.${NUM_GPUS}gpu.log"
 
-# 4 streams/GPU keeps device-memory use modest; 6 CPU threads per stream
-# balances CPU and GPU work.
-docker run --gpus all --rm \
+docker run --gpus "${GPU_FLAG}" --rm \
     -v ${DATA_DIR}/data:/data \
     -v ${TMP_DIR}:/tmp \
     ${DOCKER_IMAGE} pbrun deepvariant \
-    --ref /data/ref/ucsc.hg19.fasta \
+    --ref /data/ref/Homo_sapiens_assembly38.fasta \
     --in-bam /data/outdir/${IN_BAM} \
     --out-variants /data/outdir/${OUT_VCF} \
     --num-gpus ${NUM_GPUS} \
-    --num-streams-per-gpu 4 \
-    --num-cpu-threads-per-stream 6 \
+    --num-streams-per-gpu ${STREAMS_PER_GPU} \
+    --num-cpu-threads-per-stream ${THREADS_PER_STREAM} \
     --run-partition \
     --use-tf32 \
     --logfile /data/logs/${LOG_FILE} ${ARGS} \
