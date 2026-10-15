@@ -1,47 +1,75 @@
 #!/bin/bash
+#
+# Parabricks GPU-scaling benchmark sweep.
+#
+# Runs all four benchmarks (fq2bam, haplotypecaller, deepvariant, deepsomatic)
+# at each GPU count in GPU_COUNTS. For every GPU count we first align the FASTQ
+# pair with fq2bam, then feed the resulting BAM into the three variant callers.
+# Output BAMs/VCFs and logs are labelled with the GPU count (e.g. ".2gpu.").
+#
+# Usage: ./benchmark.sh [data_dir] [tmp_dir]
+#   data_dir - parent dir containing the data/ subdir (default: repo root)
+#   tmp_dir  - scratch dir for intermediate files (default: <data_dir>/tmp)
+#
+# GPU counts can be overridden:  GPU_COUNTS="2 4" ./benchmark.sh
+set -euo pipefail
 
-# Check that the hardware is set 
-if [[ -z $1 ]]; then
-    echo "Missing data directory. Exiting."
-    echo "./benchmark.sh /opt/dlami/nvme L4"
-    exit
-fi
+# The data was copied to the fast local NVMe SSD; keep inputs, scratch, and
+# outputs all on that drive for best I/O. Override NVME_DIR if it moves.
+NVME_DIR="${NVME_DIR:-/opt/dlami/nvme}"
+REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DATA_DIR="${1:-$NVME_DIR}"
+TMP_DIR="${2:-$NVME_DIR/tmp}"
+BENCHMARK_PATH="${REPO_DIR}/benchmarks"
 
-if [[ -z $2 ]]; then
-    echo "Missing hardware setting. Exiting."
-    echo "./benchmark.sh /opt/dlami/nvme L4"
-    exit
-fi
+# GPU counts to sweep. This host has 4 L4 GPUs; 8 requires an 8-GPU instance.
+GPU_COUNTS="${GPU_COUNTS:-2 4}"
 
-DATA_DIR="$1"
-HARDWARE="$2"
-BENCHMARK_PATH="./benchmarks/${HARDWARE}"
+# Sample: HG002 WGS from the DNBSEQ-T7+ (paired FASTQ in data/).
+FASTQ_1="HG002_ML150002521_UDB-386_1.fq.gz"
+FASTQ_2="HG002_ML150002521_UDB-386_2.fq.gz"
 
-mkdir -p ${DATA_DIR}/tmp
-mkdir -p ${DATA_DIR}/data/logs
-mkdir -p ${DATA_DIR}/data/outdir
+OUTDIR="${DATA_DIR}/data/outdir"
+mkdir -p "${TMP_DIR}" "${DATA_DIR}/data/logs" "${OUTDIR}"
 
-# Define samples 
-declare -a T1Plus_samples=(30x_DL100002760_L01_NA12878_1.fq.gz 30x_DL100002760_L01_NA12878_2.fq.gz)
-declare -a T7_samples=(E100030471QC960_L01_48_1.30x.fq.gz E100030471QC960_L01_48_2.30x.fq.gz)
-declare -a G400_samples=(G400_PE150_NA12878_WGS_V300046476_L01_1.fq.gz G400_PE150_NA12878_WGS_V300046476_L01_2.fq.gz)
+# Resume helper: run a benchmark only if its output isn't already present.
+# This lets an interrupted sweep be relaunched without redoing finished steps.
+# NOTE: skip is based purely on "output file exists and is non-empty", so if a
+# step was killed mid-write, delete its partial output before relaunching.
+run_step() {
+    local out="$1"; shift   # expected output file (relative to OUTDIR)
+    if [[ -s "${OUTDIR}/${out}" ]]; then
+        echo ">> SKIP (already done): ${out}"
+        return 0
+    fi
+    "$@"
+}
 
-# Note: Array contents must match names declared above 
-# declare -a all_samples=("T1Plus_samples" "T7_samples" "G400_samples")
-declare -a all_samples=("T7_samples" "G400_samples")
+for n in ${GPU_COUNTS}; do
+    echo "========================================================"
+    echo "  GPU count: ${n}"
+    echo "========================================================"
+    export NUM_GPUS="${n}"
 
-# Run benchmarks on every set of samples 
-for s in "${all_samples[@]}"; do
-    
-    # Let's us treat all_samples like a 2D array 
-    declare -n sample="$s"
+    SAMPLE="$(basename -s .fq.gz ${FASTQ_1})"
+    BAM="${SAMPLE}.fq2bam.${n}gpu.bam"
+    BAM_SAMPLE="$(basename -s .bam ${BAM})"
 
-    # Run germline benchmark 
-    ${BENCHMARK_PATH}/germline.sh $1 ${sample[0]} ${sample[1]}
-   
-    # Run deepvariant benchmark 
-    BAM="$(basename -s .fq.gz ${sample[0]}).bam"
-    ${BENCHMARK_PATH}/deepvariant.sh $1 ${BAM}
+    # 1) Alignment: FASTQ -> BAM
+    run_step "${BAM}" \
+        "${BENCHMARK_PATH}/fq2bam.sh" "${DATA_DIR}" "${FASTQ_1}" "${FASTQ_2}" "${TMP_DIR}"
 
+    # 2) Variant callers on that BAM
+    run_step "${BAM_SAMPLE}.haplotypecaller.${n}gpu.vcf" \
+        "${BENCHMARK_PATH}/haplotypecaller.sh" "${DATA_DIR}" "${BAM}" "${TMP_DIR}"
+    run_step "${BAM_SAMPLE}.deepvariant.${n}gpu.vcf" \
+        "${BENCHMARK_PATH}/deepvariant.sh" "${DATA_DIR}" "${BAM}" "${TMP_DIR}"
+
+    # DeepSomatic is disabled: Parabricks 4.7 requires a matched --in-normal-bam
+    # (no tumor-only data available for this sample). Re-enable when a normal BAM
+    # exists by restoring the run_step below.
+    # run_step "${BAM_SAMPLE}.deepsomatic.${n}gpu.vcf" \
+    #     "${BENCHMARK_PATH}/deepsomatic.sh" "${DATA_DIR}" "${BAM}" "${TMP_DIR}"
 done
 
+echo "All benchmarks complete. Logs in ${DATA_DIR}/data/logs, outputs in ${DATA_DIR}/data/outdir"

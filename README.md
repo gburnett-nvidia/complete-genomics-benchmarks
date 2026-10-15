@@ -45,9 +45,11 @@ For Parabricks, there are two categories of GPUs that we recommend: High Perform
 | On Demand Cost per Hour | $6.68 | $15.07 |
 
 ## Dataset
-For these benchmarks we will use NA12878 whole genome (WGS) data from the DNBSEQ-T7 and DNBSEQ-G400 Complete Genomics sequencers. All the data including the FASTQ, reference, and other accessory files are hosted publicly and can be downloaded using: 
+This benchmark uses WGS data from HG002 sampled at 100x coverage on the DNBSEQ-T7+ Complete Genomics sequencer. To download the data, run the following script: 
 
 `./download.sh`
+
+Note: This is ~300GB of data and may take some time to download. 
 
 ### Pre-Processing
 The data as it exists publicly is almost ready to use for our benchmarking. For an apples-to-apples comparison, we want both of the WGS samples to have the same coverage. The T7 WGS data has a coverage of 46x and the G400 WGS data has a coverage of 30x. To resolve this, we will downsample the T7 WGS data by 65%. To achieve this, we can run: 
